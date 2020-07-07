@@ -395,9 +395,22 @@ abstract class Factory
     {
         return $this->newInstance([
             'has' => $this->has->concat([new Relationship(
-                $factory, $relationship ?: Str::camel(Str::plural(class_basename($factory->modelName())))
+                $factory, $relationship ?: $this->guessRelationship($factory->modelName())
             )]),
         ]);
+    }
+
+    /**
+     * Attempt to guess the relationship name for a "has" relationship.
+     *
+     * @param  string  $related
+     * @return string
+     */
+    protected function guessRelationship(string $related)
+    {
+        $guess = Str::camel(Str::plural(class_basename($related)));
+
+        return method_exists($this->modelName(), $guess) ? $guess : Str::singular($guess);
     }
 
     /**
@@ -644,7 +657,7 @@ abstract class Factory
             return $this->has(
                 $factory
                     ->count(is_numeric($parameters[0] ?? null) ? $parameters[0] : 1)
-                    ->state(is_array($parameters[0] ?? null) ? $parameters[0] : ($parameters[1] ?? [])),
+                    ->state((is_callable($parameters[0] ?? null) || is_array($parameters[0] ?? null)) ? $parameters[0] : ($parameters[1] ?? [])),
                 $relationship
             );
         }
