@@ -142,7 +142,7 @@ abstract class Factory
      */
     public static function new($attributes = [])
     {
-        return (new static)->state($attributes);
+        return (new static)->state($attributes)->configure();
     }
 
     /**
@@ -153,7 +153,17 @@ abstract class Factory
      */
     public static function times(int $count)
     {
-        return new static($count);
+        return static::new()->count($count);
+    }
+
+    /**
+     * Configure the factory.
+     *
+     * @return $this
+     */
+    public function configure()
+    {
+        return $this;
     }
 
     /**
