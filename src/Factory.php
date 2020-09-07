@@ -325,6 +325,10 @@ abstract class Factory
                 return $this->parentResolvers();
             }], $states->all()));
         })->reduce(function ($carry, $state) use ($parent) {
+            if ($state instanceof Closure) {
+                $state = $state->bindTo($this);
+            }
+
             return array_merge($carry, $state($carry, $parent));
         }, $this->definition());
     }
