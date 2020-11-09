@@ -10,10 +10,10 @@
         }
     ],
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.3|^8.0",
         "illuminate/database": "^7.0",
         "illuminate/support": "^7.0",
-        "fzaninotto/faker": "^1.9.1"
+        "fakerphp/faker": "^1.10"
     },
     "conflict": {
         "illuminate/database": "^8.0"
@@ -25,13 +25,13 @@
     },
     "scripts": {
         "update-sources": [
-            "wget https://github.com/laravel/framework/raw/master/src/Illuminate/Database/Eloquent/Factories/BelongsToManyRelationship.php -O src/BelongsToManyRelationship.php",
-            "wget https://github.com/laravel/framework/raw/master/src/Illuminate/Database/Eloquent/Factories/BelongsToRelationship.php -O src/BelongsToRelationship.php",
-            "wget https://github.com/laravel/framework/raw/master/src/Illuminate/Database/Eloquent/Factories/Factory.php -O src/Factory.php",
-            "wget https://github.com/laravel/framework/raw/master/src/Illuminate/Database/Eloquent/Factories/HasFactory.php -O src/HasFactory.php",
-            "wget https://github.com/laravel/framework/raw/master/src/Illuminate/Database/Eloquent/Factories/Relationship.php -O src/Relationship.php",
-            "wget https://github.com/laravel/framework/raw/master/src/Illuminate/Database/Eloquent/Factories/Sequence.php -O src/Sequence.php",
-            "wget https://github.com/laravel/framework/raw/master/src/Illuminate/Database/Console/Factories/stubs/factory.stub -O assets/factory.stub"
+            "wget https://github.com/laravel/framework/raw/8.x/src/Illuminate/Database/Eloquent/Factories/BelongsToManyRelationship.php -O src/BelongsToManyRelationship.php",
+            "wget https://github.com/laravel/framework/raw/8.x/src/Illuminate/Database/Eloquent/Factories/BelongsToRelationship.php -O src/BelongsToRelationship.php",
+            "wget https://github.com/laravel/framework/raw/8.x/src/Illuminate/Database/Eloquent/Factories/Factory.php -O src/Factory.php",
+            "wget https://github.com/laravel/framework/raw/8.x/src/Illuminate/Database/Eloquent/Factories/HasFactory.php -O src/HasFactory.php",
+            "wget https://github.com/laravel/framework/raw/8.x/src/Illuminate/Database/Eloquent/Factories/Relationship.php -O src/Relationship.php",
+            "wget https://github.com/laravel/framework/raw/8.x/src/Illuminate/Database/Eloquent/Factories/Sequence.php -O src/Sequence.php",
+            "wget https://github.com/laravel/framework/raw/8.x/src/Illuminate/Database/Console/Factories/stubs/factory.stub -O assets/factory.stub"
         ]
     }
 }
